@@ -1,0 +1,79 @@
+<form [formGroup]="contractForm">
+    <mat-card class="contract-card">
+        <mat-card-header>
+            <mat-card-title>Contract Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <label class="margin-right">Gender</label>
+                    <mat-radio-group formControlName="gender">
+                        <mat-radio-button value="mr">Mr</mat-radio-button>
+                        <mat-radio-button value="mrs">Mrs</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="half-width" required>
+                        <input matInput placeholder="Name" formControlName="name">
+                        <mat-error>
+                            <app-validation-message [control]="contractForm.controls['name']"
+                                [messages]="{required:'Name is required'}">
+                            </app-validation-message>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="half-width" required>
+                        <input matInput [matDatepicker]="dobPicker" [max]="currentDate" placeholder="Date of Birth"
+                            formControlName="dob">
+                        <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #dobPicker></mat-datepicker>
+                        <mat-error>
+                            <app-validation-message [control]="contractForm.controls['name']"
+                                [messages]="{required:'Date of Birth is required'}">
+                            </app-validation-message>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="half-width" required>
+                        <input matInput placeholder="Email" formControlName="email">
+                        <mat-error>
+                            <app-validation-message [control]="contractForm.controls['name']"
+                                [messages]="{required:'Email is required'}">
+                            </app-validation-message>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="half-width" required>
+                        <input matInput type="number" placeholder="Budget" formControlName="budget">
+                        <span matPrefix>$&nbsp;</span>
+                        <mat-error>
+                            <app-validation-message [control]="contractForm.controls['name']"
+                                [messages]="{required:'Budget is required'}">
+                            </app-validation-message>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="submit()" [disabled]="contractForm.invalid"
+                *ngIf="!viewMode"> Submit</button>
+            <button mat-raised-button color="primary" (click)="createNewContract()" [disabled]="contractForm.invalid"
+                *ngIf="viewMode">New Contract</button>
+
+        </mat-card-actions>
+    </mat-card>
+</form>
