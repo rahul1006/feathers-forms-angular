@@ -49,17 +49,21 @@ Getting up and running is as easy as 1, 2, 3.
 
 ![Create Contract](demo/Create_Contract.PNG)
 
-### Validation
+### Form Validation
 
 ![Create Contract Validation](demo/Contract_Form_Validation.PNG)
 
-## View All Contract
+## View All Contracts
 
 ![View Contract](demo/Contract_List.PNG)
 
 ### View Contract
 
 ![View Contract](demo/View_Contract.PNG)
+
+## MySql
+
+![My SQl](demo/MySql_DB.PNG)
 
 ## Testing
 
